@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -23,6 +24,13 @@ public class Database {
             var t = new Table<>(null, entity);
             tables.add(t);
         }
+    }
+
+    public List<Table<?>> findTableDeep(Table<?> table)
+    {
+        return this.getTables().stream().filter(
+                (e) -> e.getColumns().stream().anyMatch((f) -> f.isReference() && f.getType().getSimpleName().equals(table.getName()))
+        ).collect(Collectors.toList());
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.airportProject.model;
 
+import com.example.airportProject.reflectionObjects.Migration;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Migration
 public class Airport {
 
     @Id

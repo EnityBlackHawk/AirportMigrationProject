@@ -1,5 +1,6 @@
 package com.example.airportProject.model;
 
+import com.example.airportProject.reflectionObjects.Migration;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Migration
 public class Flight {
 
     @Id
