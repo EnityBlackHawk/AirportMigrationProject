@@ -26,6 +26,12 @@ public class Database {
         }
     }
 
+    public List<Table<?>> referencesTables(Table<?> table)
+    {
+        var refTablesNames = table.getColumns().stream().filter(Column::isReference).map((e) -> e.getType().getSimpleName()).toList();
+        return getTables().stream().filter((e) ->  refTablesNames.contains(e.getName())).toList();
+    }
+
     public List<Table<?>> findTableDeep(Table<?> table)
     {
         return this.getTables().stream().filter(

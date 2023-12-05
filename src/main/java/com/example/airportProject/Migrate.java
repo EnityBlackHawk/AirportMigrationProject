@@ -18,9 +18,9 @@ public class Migrate {
        // var t = new Table(aircraftService.findAll().get(0), Aircraft.class);
 
         var db = new Database("air", Aircraft.class, Airline.class, Airport.class, Flight.class, Manufacturer.class);
-
-        var l = db.findTableDeep(db.getTables().stream().filter((e) -> Objects.equals(e.getName(), "Aircraft")).findFirst().orElseThrow());
-
-        System.out.println(db);
+        var r2nql = new R2NoSQL(db);
+        // var l = db.referencesTables(db.getTables().stream().filter((e) -> Objects.equals(e.getName(), "Aircraft")).findFirst().orElseThrow());
+        var docs = r2nql.DataConversion();
+        System.out.println(docs);
     }
 }

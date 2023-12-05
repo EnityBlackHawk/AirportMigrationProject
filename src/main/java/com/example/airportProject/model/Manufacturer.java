@@ -1,5 +1,6 @@
 package com.example.airportProject.model;
 
+import com.example.airportProject.reflectionObjects.Classification;
 import com.example.airportProject.reflectionObjects.Migration;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Builder
-@Migration
+@Migration(classification = Classification.subclass)
 public class Manufacturer {
 
     @Id
